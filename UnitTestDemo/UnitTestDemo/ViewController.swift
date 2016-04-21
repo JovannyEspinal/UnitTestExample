@@ -32,5 +32,21 @@ class ViewController: UIViewController {
         
         return numberOfVowels
     }
+    
+    func makeHeadline(string: String) -> String {
+        let words = string.componentsSeparatedByString(" ")
+        
+        var headline = ""
+        
+        for var word in words {
+            let firstCharacter = word.removeAtIndex(word.startIndex)
+            
+            headline += "\(String(firstCharacter).uppercaseString)\(word) "
+        }
+        
+        headline.removeAtIndex(headline.endIndex.predecessor())
+        return headline
+    }
 }
+
 

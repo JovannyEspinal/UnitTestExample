@@ -10,10 +10,11 @@ import XCTest
 @testable import UnitTestDemo
 
 class UnitTestDemoTests: XCTestCase {
+    var viewController: ViewController!
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        viewController = ViewController()
     }
     
     override func tearDown() {
@@ -22,13 +23,30 @@ class UnitTestDemoTests: XCTestCase {
     }
     
     func testNumberOfVowelsInString_ShouldReturnNUmberOfVowels() {
-        let viewController = ViewController()
+        let inputString = "Jovanny"
+        let expectedNumberOfVowels = 2
         
-        let string = "Jovanny"
-        
-        let numberOfVowels = viewController.numberOfVowelsInString(string)
-        
-        XCTAssertEqual(numberOfVowels, 2, "Should find 2 vowels in Jovanny")
+        let result = viewController.numberOfVowelsInString(inputString)
+        XCTAssertEqual(result, expectedNumberOfVowels, "Should find 2 vowels in Jovanny")
     }
+    
+    func testMakeHeadline_ReturnStringWithEachWordStartCapital() {
+        let inputString = "This is A Test Headline"
+        let expectedHeadline = "This Is A Test Headline"
+        
+        let result = viewController.makeHeadline(inputString)
+        XCTAssertEqual(result, expectedHeadline)
+        
+    }
+    
+    func testMakeHeadline_ReturnStringWithEachWordStartCapital2() {
+        let inputString = "Here Is another Example"
+        let expectedHeadline = "Here Is Another Example"
+        
+        let result = viewController.makeHeadline(inputString)
+        XCTAssertEqual(result, expectedHeadline)
+        
+    }
+    
     
 }
